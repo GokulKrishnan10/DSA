@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<bits/stdc++.h>
-#include<stack>
 struct node
 {
     int data;
