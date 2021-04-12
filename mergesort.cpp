@@ -45,7 +45,7 @@ int main()
 {
 
     int a,n;
-    cout<<"Enter the number of elements"<<endl;
+    cout<<"Enter the number of elements Gokul"<<endl;
     cin>>n;
     int *v=new int[n];
     for(int i=0;i<n;i++){cin>>v[i];}
