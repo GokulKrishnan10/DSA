@@ -64,6 +64,22 @@ void postorder(bst* root)
     postorder(root->right);
     cout<<root->data<<" ";
 }
+int min(bst *root)
+{
+    if(!(root)){return -1;}
+    while(root->left!=NULL)
+    {
+        root=root->left;
+    }return root->data;
+}
+int max(bst *root)
+{
+    if(!(root)){return -1;}
+    while(root->right!=NULL)
+    {
+        root=root->right;
+    }return root->data;
+}
 int main()
 {
     int n;int d;bst* root=NULL;
@@ -78,5 +94,7 @@ int main()
     cout<<"Found(1) or Not Found(0): "<<search(root,s)<<endl;
     cout<<"Preorder traversal: ";preorder(root);cout<<endl;
     cout<<"Inorder traversal: ";inorder(root);cout<<endl;
-    cout<<"Postorder traversal: ";postorder(root);
+    cout<<"Postorder traversal: ";postorder(root);cout<<endl;
+    cout<<"Minimum element in BST: "<<min(root)<<endl;
+    cout<<"Maximum element in BST: "<<max(root)<<endl;
 }
