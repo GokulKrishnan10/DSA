@@ -68,16 +68,14 @@ int min(bst *root)
 {
     if(!(root)){return -1;}
     while(root->left!=NULL)
-    {
-        root=root->left;
+    {root=root->left;
     }return root->data;
 }
 int max(bst *root)
 {
     if(!(root)){return -1;}
     while(root->right!=NULL)
-    {
-        root=root->right;
+    {root=root->right;
     }return root->data;
 }
 int main()
