@@ -28,10 +28,7 @@ void print(int A[],int n)
 }
 void mergesort(int A[],int n)
 {
-    if(n<2)
-    {
-        return;
-    }
+    if(n<2){return;}
     int m=n/2;
     int *l=new int[m];
     int *r= new int[n-m];
