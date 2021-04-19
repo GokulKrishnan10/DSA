@@ -93,6 +93,7 @@ int main()
     cout<<"Preorder traversal: ";preorder(root);cout<<endl;
     cout<<"Inorder traversal: ";inorder(root);cout<<endl;
     cout<<"Postorder traversal: ";postorder(root);cout<<endl;
+    cout<<"Levelorder traversal: "<<endl;
     cout<<"Minimum element in BST: "<<min(root)<<endl;
     cout<<"Maximum element in BST: "<<max(root)<<endl;
 }
