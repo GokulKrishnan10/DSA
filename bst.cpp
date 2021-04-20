@@ -15,6 +15,7 @@ class bst
 };
 bool search(bst *root,int data)
 {
+    if(!(root)){return false;}
     if(root->data==data){
         return true;
     }
