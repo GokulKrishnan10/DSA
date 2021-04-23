@@ -80,7 +80,6 @@ void levelorder(bst* root)
         }
         q.pop();//REMOVING ELEMENT FROM THE QUEUE
     }
-
 }
 int min(bst *root)
 {
