@@ -15,7 +15,7 @@ class bst
 };
 bool search(bst *root,int data)
 {
-    if(!(root)){return false;}
+    if(!root){return false;}
     if(root->data==data){
         return true;
     }
@@ -31,8 +31,7 @@ bool search(bst *root,int data)
 }
 bst* insert(bst *root,int data)
 {
-    if(!(root))
-    {
+    if(!root){
         return new bst(data);
     }
     else if(root->data<data)
@@ -46,21 +45,21 @@ bst* insert(bst *root,int data)
 }
 void preorder(bst *root)
 {
-    if(!(root)){return;}
+    if(!root){return;}
     cout<<root->data<<" ";
     preorder(root->left);
     preorder(root->right);
 }
 void inorder(bst* root)
 {
-    if(!(root)){return;}
+    if(!root){return;}
     inorder(root->left);
     cout<<root->data<<" ";
     inorder(root->right);
 }
 void postorder(bst* root)
 {
-    if(!(root)){return;}
+    if(!root){return;}
     postorder(root->left);
     postorder(root->right);
     cout<<root->data<<" ";
@@ -85,14 +84,14 @@ void levelorder(bst* root)
 }
 int min(bst *root)
 {
-    if(!(root)){return -1;}
+    if(!root){return -1;}
     while(root->left!=NULL)
     {root=root->left;
     }return root->data;
 }
 int max(bst *root)
 {
-    if(!(root)){return -1;}
+    if(!root){return -1;}
     while(root->right!=NULL)
     {root=root->right;
     }return root->data;
