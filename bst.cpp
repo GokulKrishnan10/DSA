@@ -65,6 +65,24 @@ void postorder(bst* root)
     postorder(root->right);
     cout<<root->data<<" ";
 }
+void levelorder(bst* root)
+{
+    queue<bst*> q;
+    if(!root){return;}
+    q.push(root);
+    while(!q.empty()){
+        bst* c=q.front();
+        cout<<c->data<<" ";
+        if(c->left!=NULL){
+            q.push(c->left);
+        }
+        if(c->right!=NULL){
+            q.push(c->right);
+        }
+        q.pop();//REMOVING ELEMENT FROM THE QUEUE
+    }
+
+}
 int min(bst *root)
 {
     if(!(root)){return -1;}
@@ -94,7 +112,7 @@ int main()
     cout<<"Preorder traversal: ";preorder(root);cout<<endl;
     cout<<"Inorder traversal: ";inorder(root);cout<<endl;
     cout<<"Postorder traversal: ";postorder(root);cout<<endl;
-    cout<<"Levelorder traversal: "<<endl;
+    cout<<"Levelorder traversal: ";levelorder(root);cout<<endl;
     cout<<"Minimum element in BST: "<<min(root)<<endl;
     cout<<"Maximum element in BST: "<<max(root)<<endl;
 }
