@@ -126,9 +126,7 @@ int main()
     int n;int d;bst* root=NULL;
     cout<<"Enter number of nodes ";
     cin>>n;
-    for(int i=0;i<n;i++)
-    {
-        cin>>d;
+    for(int i=0;i<n;i++){cin>>d;
         root=insert(root,d);
     }int s;
     cout<<"Enter the element to be searched ";cin>>s;
