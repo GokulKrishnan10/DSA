@@ -81,19 +81,45 @@ void levelorder(bst* root)
         q.pop();//REMOVING ELEMENT FROM THE QUEUE
     }
 }
-int min(bst *root)
+bst* min(bst *root)
 {
-    if(!root){return -1;}
+    if(!root){return NULL;}
     while(root->left!=NULL)
     {root=root->left;
-    }return root->data;
+    }return root;
 }
-int max(bst *root)
+bst* max(bst *root)
 {
-    if(!root){return -1;}
+    if(!root){return NULL;}
     while(root->right!=NULL)
     {root=root->right;
-    }return root->data;
+    }return root;
+}
+bst* Delete(bst* root,int data)
+{
+    if(!root){return root;}
+    else if(data<root->data){root->left=Delete(root->left,data);}
+    else if(data>root->data){root->right=Delete(root->right,data);}
+    else//IF THE INTENDED ELEMENT IS FOUND
+    {
+        if(root->left==NULL && root->right==NULL)//CASE 1:NO CHILD(LEAF NODE)
+        {delete root;root=NULL;}
+        else if(root->left==NULL)//CASE 2:ONE CHILD:THERE'S NO LEFT CHILD
+        {
+            bst* temp=root;root=root->right;
+            delete temp;
+        }
+        else if(root->right==NULL)//CASE 2:ONE CHILD:THERE'S NO RIGHT CHILD
+        {bst* temp=root;
+        root=root->left;
+        delete temp;}
+        else//CASE 3:TWO CHILDREN
+        {
+            bst* temp=min(root->right);
+            root->data=temp->data;
+            root->right=Delete(root->right,temp->data);
+        }
+    }return root;
 }
 int main()
 {
@@ -111,6 +137,9 @@ int main()
     cout<<"Inorder traversal: ";inorder(root);cout<<endl;
     cout<<"Postorder traversal: ";postorder(root);cout<<endl;
     cout<<"Levelorder traversal: ";levelorder(root);cout<<endl;
-    cout<<"Minimum element in BST: "<<min(root)<<endl;
-    cout<<"Maximum element in BST: "<<max(root)<<endl;
+    cout<<"Minimum element in BST: "<<min(root)->data<<endl;
+    cout<<"Maximum element in BST: "<<max(root)->data<<endl;
+    int de;cout<<"Enter element to be deleted ";cin>>de;
+    root=Delete(root,de);
+    inorder(root);
 }
