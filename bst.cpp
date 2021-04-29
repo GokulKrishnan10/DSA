@@ -166,7 +166,7 @@ int main()
     cout<<"Minimum element in BST: "<<min(root)->data<<endl;
     cout<<"Maximum element in BST: "<<max(root)->data<<endl;
     int de;cout<<"Enter element to be deleted ";cin>>de;
-    cout<<"Height of the given BST will be: "<<height(root)<<endl;
+    cout<<"Height of the given BST is: "<<height(root)<<endl;
     root=Delete(root,de);
     inordertr(root);
 }
