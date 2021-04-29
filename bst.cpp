@@ -95,6 +95,34 @@ bst* max(bst *root)
     {root=root->right;
     }return root;
 }
+int height(bst* root)
+{
+    if(!root)
+    {return -1;}
+    int a=height(root->left)>height(root->right)?height(root->left)+1:height(root->right)+1;
+    return a;
+}
+void inordertr(bst* root){
+    stack<bst*> s;
+    bst* c=root;vector<int> v;
+    while(!s.empty() || c!=NULL)
+        {
+            if(c!=NULL)
+            {s.push(c);
+              c=c->left;
+            }
+            else
+            {c=s.top();
+                s.pop();
+                v.push_back(c->data);
+                c=c->right;
+            }
+        }
+        for(int i=0;i<v.size();i++)
+        {
+            cout<<v[i]<<" ";
+        }
+}
 bst* Delete(bst* root,int data)
 {
     if(!root){return root;}
@@ -138,6 +166,7 @@ int main()
     cout<<"Minimum element in BST: "<<min(root)->data<<endl;
     cout<<"Maximum element in BST: "<<max(root)->data<<endl;
     int de;cout<<"Enter element to be deleted ";cin>>de;
+    cout<<"Height of the given BST will be: "<<height(root)<<endl;
     root=Delete(root,de);
-    inorder(root);
+    inordertr(root);
 }
