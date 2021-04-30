@@ -94,6 +94,15 @@ bst* max(bst *root)
     while(root->right!=NULL)
     {root=root->right;
     }return root;
+}int a1=0;
+void dfs(bst* root,int d)
+{   
+    if(root){a1+=d;
+    dfs(root->left,d+1);
+    dfs(root->right,d+1);}
+}
+int depth(bst* root)
+{dfs(root,0);return a1;
 }
 int height(bst* root)
 {
@@ -121,7 +130,7 @@ void inordertr(bst* root){
         for(int i=0;i<v.size();i++)
         {
             cout<<v[i]<<" ";
-        }
+        }cut<<endl;
 }
 bst* Delete(bst* root,int data)
 {
@@ -169,4 +178,5 @@ int main()
     cout<<"Height of the given BST is: "<<height(root)<<endl;
     root=Delete(root,de);
     inordertr(root);
+    cout<<"Sum of depth: "<<depth(root)<<endl;
 }
