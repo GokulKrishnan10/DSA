@@ -72,10 +72,10 @@ void levelorder(bst* root)
     while(!q.empty()){
         bst* c=q.front();
         cout<<c->data<<" ";
-        if(c->left!=NULL){
+        if(c->left){
             q.push(c->left);
         }
-        if(c->right!=NULL){
+        if(c->right){
             q.push(c->right);
         }
         q.pop();//REMOVING ELEMENT FROM THE QUEUE
@@ -84,14 +84,14 @@ void levelorder(bst* root)
 bst* min(bst *root)
 {
     if(!root){return NULL;}
-    while(root->left!=NULL)
+    while(root->left)
     {root=root->left;
     }return root;
 }
 bst* max(bst *root)
 {
     if(!root){return NULL;}
-    while(root->right!=NULL)
+    while(root->right)
     {root=root->right;
     }return root;
 }int a1=0;
@@ -130,7 +130,7 @@ void inordertr(bst* root){
         for(int i=0;i<v.size();i++)
         {
             cout<<v[i]<<" ";
-        }cut<<endl;
+        }cout<<endl;
 }
 bst* Delete(bst* root,int data)
 {
@@ -139,14 +139,14 @@ bst* Delete(bst* root,int data)
     else if(data>root->data){root->right=Delete(root->right,data);}
     else//IF THE INTENDED ELEMENT IS FOUND
     {
-        if(root->left==NULL && root->right==NULL)//CASE 1:NO CHILD(LEAF NODE)
+        if(!root->left && !root->right)//CASE 1:NO CHILD(LEAF NODE)
         {delete root;root=NULL;}
-        else if(root->left==NULL)//CASE 2:ONE CHILD:THERE'S NO LEFT CHILD
+        else if(!root->left)//CASE 2:ONE CHILD:THERE'S NO LEFT CHILD
         {
             bst* temp=root;root=root->right;
             delete temp;
         }
-        else if(root->right==NULL)//CASE 2:ONE CHILD:THERE'S NO RIGHT CHILD
+        else if(!root->right)//CASE 2:ONE CHILD:THERE'S NO RIGHT CHILD
         {bst* temp=root;
         root=root->left;
         delete temp;}
