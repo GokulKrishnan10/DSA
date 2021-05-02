@@ -104,12 +104,9 @@ void dfs(bst* root,int d)
 int depth(bst* root)
 {dfs(root,0);return a1;
 }
-int height(bst* root)
-{
-    if(!root)
-    {return -1;}
-    int a=height(root->left)>height(root->right)?height(root->left)+1:height(root->right)+1;
-    return a;
+int height(bst* root) {
+        if(!root){return -1;}
+        return max(height(root->left)+1,height(root->right)+1);
 }
 void inordertr(bst* root){
     stack<bst*> s;
@@ -174,8 +171,8 @@ int main()
     cout<<"Levelorder traversal: ";levelorder(root);cout<<endl;
     cout<<"Minimum element in BST: "<<min(root)->data<<endl;
     cout<<"Maximum element in BST: "<<max(root)->data<<endl;
-    int de;cout<<"Enter element to be deleted ";cin>>de;
     cout<<"Height of the given BST is: "<<height(root)<<endl;
+    int de;cout<<"Enter element to be deleted ";cin>>de;
     root=Delete(root,de);
     inordertr(root);
     cout<<"Sum of depth: "<<depth(root)<<endl;
